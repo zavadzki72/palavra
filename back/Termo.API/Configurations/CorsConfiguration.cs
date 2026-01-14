@@ -7,16 +7,7 @@ namespace Termo.API.Configurations
     {
 
         private static readonly string[] _urls = {
-            "https://termo-zavadzki72.vercel.app",
-            "https://termo.vercel.app",
-            "https://jogos.marccusz.com",
-            "https://marccusz.com",
-            "https://www.marccusz.com",
-            "https://www.jogos.marccusz.com",
-            "https://palavra.marccusz.com",
-            "https://www.palavra.marccusz.com",
-            "https://www.palavras.marccusz.com",
-            "https://palavras.marccusz.com"
+            "https://palavra.marccusz.com/",
         };
 
         public static void AddCorsConfiguration(this IServiceCollection services)
