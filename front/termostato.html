@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <title>Palavrostato</title>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width'>
+    <meta name="description" content="Jogo de palavras">
+    <link rel="canonical" href="https://jogos.marccusz.com">
+    <script defer data-domain="term.ooo" src="https://metaphora.co/plausible.js"></script>
+    <meta name="theme-color" content="#6E5C62">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <meta name="apple-mobile-web-app-title" content="Palavras">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="termostato.css">
+    <!-- <script src="termostato.js"></script> -->
+    <script src="termostato-obsfucated.js"></script>
+</head>
+
+<body>
+    <div id="loader"></div>
+    <section id="allPage" style="display:none;">
+        <h1>Estatísticas</h1>
+
+        <h2 id="yesterday_world"></h2>
+        <div id="stats">
+            <p id="first_time_general"></p><b>primeira vez</b>
+            <p id="wins_general"></p><b>vitórias</b>
+            <p id="games_general"></p><b>jogos</b>
+        </div>
+
+        <div id="bars">
+            <b>1</b><span><div id="histo_1" class='histo' style='width:7%'>0</div></span>
+            <b>2</b><span><div id="histo_2" class='histo' style='width:7%'>0</div></span>
+            <b>3</b><span><div id="histo_3" class='histo' style='width:7%'>0</div></span>
+            <b>4</b><span><div id="histo_4" class='histo' style='width:7%'>0</div></span>
+            <b>5</b><span><div id="histo_5" class='histo' style='width:7%'>0</div></span>
+            <b>6</b><span><div id="histo_6" class='histo' style='width:7%'>0</div></span>
+            <b>💀</b><span><div id="histo_loses" class='histo' style='width:7%'>0</div></span>
+        </div>
+
+        <div id="wordlist">
+            <div id="invalid_worlds"> </div>
+            <div id="first_worlds"> </div>
+            <div id="all_worlds"> </div>
+        </div>
+        <div id='footer'>
+            <a href='https://palavra.marccusz.com'>Palavras</a> criado por <a href='https://www.marccusz.com' target="_blank">Marccus Zavadzki</a>.
+        </div>
+    </section>
+
+</body>
+
+</html>
