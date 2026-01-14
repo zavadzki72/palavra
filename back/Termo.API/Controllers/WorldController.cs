@@ -26,6 +26,7 @@ namespace Termo.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("GetPlayerTodayProgress")]
         public async Task<IActionResult> GetPlayerTodayProgress(string ipAdress) {
 

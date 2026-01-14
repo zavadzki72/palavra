@@ -46,7 +46,7 @@ namespace Termo.API
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors("AllowOnlyMyDomains"); ;
             });
         }
     }
