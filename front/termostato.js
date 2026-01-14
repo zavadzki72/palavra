@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const urlApi = 'https://termoapi.azurewebsites.net';
+    const urlApi = 'https://palavra-api.marccusz.com';
     // const urlApi = 'https://localhost:44363';
     const palmeiras = 'palmeiras_nao_tem_mundial';
 
