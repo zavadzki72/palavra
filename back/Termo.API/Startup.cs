@@ -39,11 +39,11 @@ namespace Termo.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            
+            app.UseCorsConfiguration();
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-            app.UseCorsConfiguration();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();

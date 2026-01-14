@@ -5,20 +5,16 @@ namespace Termo.API.Configurations
 {
     public static class CorsConfiguration
     {
-
-        private static readonly string[] _urls = {
-            "https://palavra.marccusz.com/",
-        };
-
         public static void AddCorsConfiguration(this IServiceCollection services)
         {
             services.AddCors(options => {
-                options.AddPolicy("AllowOnlyMyDomains", builder => {
+                options.AddPolicy("AllowOnlyMyDomains", builder =>
+                {
                     builder
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .WithOrigins(_urls)
-                    .AllowCredentials();
+                        .WithOrigins("https://palavra.marccusz.com")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
                 });
             });
 
