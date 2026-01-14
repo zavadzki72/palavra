@@ -171,12 +171,12 @@ namespace Termo.API.Services
         }
 
         private static TimeSpan GetHoursToNewWorld() {
-            return new TimeSpan(23, 59, 59) - DateTime.Now.TimeOfDay;
+            return new TimeSpan(23, 59, 59) - DateTimeOffset.UtcNow.TimeOfDay;
         }
 
         private async Task<string> GetShareString(List<TryEntity> tries) {
 
-            var triesToday = tries.Where(x => x.TryDate.Date == DateTime.UtcNow.AddHours(-3).Date).OrderBy(x => x.TryDate).ToList();
+            var triesToday = tries.Where(x => x.TryDate.Date == DateTimeOffset.UtcNow.AddHours(-3).Date).OrderBy(x => x.TryDate).ToList();
 
             if(triesToday.Count < 6 && !triesToday.Any(x => x.Success)) {
                 return string.Empty;

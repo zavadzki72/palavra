@@ -9,7 +9,7 @@ namespace Termo.Models.Entities {
         public int Id { get; set; }
         public string Name { get; set; }
         public WorldStatusEnumerator WorldStatus { get; set; }
-        public DateTime? UsedDate { get; set; }
+        public DateTimeOffset? UsedDate { get; set; }
 
     }
 }

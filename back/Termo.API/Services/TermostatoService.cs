@@ -102,7 +102,7 @@ namespace Termo.API.Services
             return worldsNotWaiting.Count - 1;
         }
 
-        private static int GetPercentWinsFirstTime(List<IGrouping<DateTime, TryEntity>> allTriesByDate, int totalGames)
+        private static int GetPercentWinsFirstTime(List<IGrouping<DateTimeOffset, TryEntity>> allTriesByDate, int totalGames)
         {
             var winsFirstTime = GetWinsFirstTime(allTriesByDate);
 
@@ -110,7 +110,7 @@ namespace Termo.API.Services
             return percentage;
         }
 
-        private static int GetPercentWins(List<IGrouping<DateTime, TryEntity>> allTriesByDate, int totalGames)
+        private static int GetPercentWins(List<IGrouping<DateTimeOffset, TryEntity>> allTriesByDate, int totalGames)
         {
             var winsFirstTime = GetWins(allTriesByDate);
 
@@ -118,7 +118,7 @@ namespace Termo.API.Services
             return percentage;
         }
 
-        private static int GetWinsFirstTime(List<IGrouping<DateTime, TryEntity>> allTriesByDate)
+        private static int GetWinsFirstTime(List<IGrouping<DateTimeOffset, TryEntity>> allTriesByDate)
         {
             var success = 0;
 
@@ -141,7 +141,7 @@ namespace Termo.API.Services
             return success;
         }
 
-        private static int GetWins(List<IGrouping<DateTime, TryEntity>> allTriesByDate)
+        private static int GetWins(List<IGrouping<DateTimeOffset, TryEntity>> allTriesByDate)
         {
             var count = 0;
 
@@ -167,7 +167,7 @@ namespace Termo.API.Services
             return count;
         }
 
-        private static int GetTotalGames(List<IGrouping<DateTime, TryEntity>> allTriesByDate)
+        private static int GetTotalGames(List<IGrouping<DateTimeOffset, TryEntity>> allTriesByDate)
         {
             var count = 0;
 
@@ -323,7 +323,7 @@ namespace Termo.API.Services
             return loses;
         }
 
-        private static Dictionary<string, int> GetWorldsFirstTime(List<IGrouping<DateTime, TryEntity>> allTriesByDate)
+        private static Dictionary<string, int> GetWorldsFirstTime(List<IGrouping<DateTimeOffset, TryEntity>> allTriesByDate)
         {
             Dictionary<string, int> worldsFirstTime = new();
 

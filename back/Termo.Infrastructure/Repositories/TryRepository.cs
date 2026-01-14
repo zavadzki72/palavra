@@ -24,14 +24,14 @@ namespace Termo.Infrastructure.Repositories
             return playerTries;
         }
 
-        public async Task<List<TryEntity>> GetTriesByPlayerAndDate(int playerId, DateTime tryDate)
+        public async Task<List<TryEntity>> GetTriesByPlayerAndDate(int playerId, DateTimeOffset tryDate)
         {
             var playerTries = await _dbContext.Tries.Where(x => x.PlayerId == playerId && x.TryDate.Date == tryDate.AddHours(-3).Date).ToListAsync();
 
             return playerTries;
         }
 
-        public async Task<List<TryEntity>> GetTriesByPlayerIpAndDateOrderingByTryDate(string ipAdress, DateTime tryDate)
+        public async Task<List<TryEntity>> GetTriesByPlayerIpAndDateOrderingByTryDate(string ipAdress, DateTimeOffset tryDate)
         {
             var playerTries = await _dbContext.Tries
                 .Include(x => x.Player)
@@ -42,7 +42,7 @@ namespace Termo.Infrastructure.Repositories
             return playerTries;
         }
 
-        public List<IGrouping<DateTime, TryEntity>> GetTriesGroupedByTryDate()
+        public List<IGrouping<DateTimeOffset, TryEntity>> GetTriesGroupedByTryDate()
         {
             var playerTries = _dbContext.Tries
                 .AsNoTracking()
@@ -55,7 +55,7 @@ namespace Termo.Infrastructure.Repositories
 
         public List<IGrouping<int, TryEntity>> GetTriesYesterday()
         {
-            var dateToCompare = DateTime.UtcNow.AddHours(-3).AddDays(-1);
+            var dateToCompare = DateTimeOffset.UtcNow.AddHours(-3).AddDays(-1);
 
             var playerTries = _dbContext.Tries
                 .Where(x => x.TryDate.Date == dateToCompare.Date)

@@ -8,7 +8,7 @@ namespace Termo.Models.Entities {
         [Key]
         public int Id { get; set; }
         
-        public DateTime TryDate { get; set; }
+        public DateTimeOffset TryDate { get; set; }
         public bool Success { get; set; }
         public int PlayerId { get; set; }
 

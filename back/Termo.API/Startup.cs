@@ -34,7 +34,7 @@ namespace Termo.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwaggerConfiguration();
+            app.UseSwaggerSetup();
 
             app.UseHttpsRedirection();
 

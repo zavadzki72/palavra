@@ -76,7 +76,7 @@ namespace Termo.API.Services
             var world = await _worldRepository.GetRandomWorldWithStatusWaiting();
 
             world.WorldStatus = WorldStatusEnumerator.USING;
-            world.UsedDate = DateTime.UtcNow.AddHours(-3);
+            world.UsedDate = DateTimeOffset.UtcNow.AddHours(-3);
             await _worldRepository.Update(world);
 
             if (actualWorld != null) {
@@ -98,7 +98,7 @@ namespace Termo.API.Services
         }
 
         public bool ValidateWorldIsValid(WorldEntity world) {
-            return (world.UsedDate.Value.Date == DateTime.UtcNow.AddHours(-3).Date);
+            return (world.UsedDate.Value.Date == DateTimeOffset.UtcNow.AddHours(-3).Date);
         }
         #endregion;
 
@@ -140,7 +140,7 @@ namespace Termo.API.Services
 
             var returnModel = new Try {
                 IsSucces = false,
-                DateTry = DateTime.UtcNow.AddDays(-3),
+                DateTry = DateTimeOffset.UtcNow.AddDays(-3),
                 GreenLetters = _greenLetters,
                 YellowLetters = _yellowLetters,
                 BlackLetters = _blackLetters
@@ -171,7 +171,7 @@ namespace Termo.API.Services
 
             var returnModel = new Try {
                 IsSucces = true,
-                DateTry = DateTime.UtcNow.AddHours(-3),
+                DateTry = DateTimeOffset.UtcNow.AddHours(-3),
                 GreenLetters = _greenLetters,
                 YellowLetters = _yellowLetters,
                 BlackLetters = _blackLetters
@@ -278,7 +278,7 @@ namespace Termo.API.Services
 
             var tryEntity = new TryEntity {
                 Success = tryModel.IsSucces,
-                TryDate = DateTime.UtcNow.AddHours(-3),
+                TryDate = DateTimeOffset.UtcNow.AddHours(-3),
                 PlayerId = playerEntity.Id,
                 JsonTry = jsonTry,
                 TriedWorld = worldInput
@@ -343,7 +343,7 @@ namespace Termo.API.Services
         {
             var invalidWorld = new InvalidWorldEntity
             {
-                CreatedAt = DateTime.Now,
+                CreatedAt = DateTimeOffset.UtcNow,
                 World = world
             };
 
@@ -369,7 +369,7 @@ namespace Termo.API.Services
         }
 
         public async Task<List<TryEntity>> GetTriesOfPlayerToday(PlayerEntity player) {
-            var tries = await _tryRepository.GetTriesByPlayerAndDate(player.Id, DateTime.UtcNow);
+            var tries = await _tryRepository.GetTriesByPlayerAndDate(player.Id, DateTimeOffset.UtcNow);
             return tries;
         }
         #endregion
@@ -378,7 +378,7 @@ namespace Termo.API.Services
 
         public async Task<List<Try>> GetTriesTodayPlyer(string ipAdress) {
 
-            var tries = await _tryRepository.GetTriesByPlayerIpAndDateOrderingByTryDate(ipAdress, DateTime.UtcNow);
+            var tries = await _tryRepository.GetTriesByPlayerIpAndDateOrderingByTryDate(ipAdress, DateTimeOffset.UtcNow);
 
             if(tries == null) {
                 return null;

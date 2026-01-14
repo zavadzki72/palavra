@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Termo.Infrastructure;
@@ -11,9 +12,11 @@ using Termo.Infrastructure;
 namespace Termo.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260114113823_after-update")]
+    partial class afterupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,7 +41,7 @@ namespace Termo.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("InvalidWorlds", (string)null);
+                    b.ToTable("InvalidWorlds");
                 });
 
             modelBuilder.Entity("Termo.Models.Entities.PlayerEntity", b =>
@@ -57,7 +60,7 @@ namespace Termo.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Players", (string)null);
+                    b.ToTable("Players");
                 });
 
             modelBuilder.Entity("Termo.Models.Entities.TryEntity", b =>
@@ -88,7 +91,7 @@ namespace Termo.Infrastructure.Migrations
 
                     b.HasIndex("PlayerId");
 
-                    b.ToTable("Tries", (string)null);
+                    b.ToTable("Tries");
                 });
 
             modelBuilder.Entity("Termo.Models.Entities.WorldEntity", b =>
@@ -110,7 +113,7 @@ namespace Termo.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Worlds", (string)null);
+                    b.ToTable("Worlds");
                 });
 
             modelBuilder.Entity("Termo.Models.Entities.TryEntity", b =>

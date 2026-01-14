@@ -9,9 +9,9 @@ namespace Termo.Models.Interfaces
     public interface ITryRepository
     {
         Task<List<TryEntity>> GetTriesByPlayer(int playerId);
-        Task<List<TryEntity>> GetTriesByPlayerAndDate(int playerId, DateTime tryDate);
-        Task<List<TryEntity>> GetTriesByPlayerIpAndDateOrderingByTryDate(string ipAdress, DateTime tryDate);
-        List<IGrouping<DateTime, TryEntity>> GetTriesGroupedByTryDate();
+        Task<List<TryEntity>> GetTriesByPlayerAndDate(int playerId, DateTimeOffset tryDate);
+        Task<List<TryEntity>> GetTriesByPlayerIpAndDateOrderingByTryDate(string ipAdress, DateTimeOffset tryDate);
+        List<IGrouping<DateTimeOffset, TryEntity>> GetTriesGroupedByTryDate();
         List<IGrouping<int, TryEntity>> GetTriesYesterday();
         List<Tuple<string, int>> GetMostWorldsTried();
         Task Add(TryEntity tryEntity);
