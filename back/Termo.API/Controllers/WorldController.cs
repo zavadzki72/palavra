@@ -26,8 +26,8 @@ namespace Termo.API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         [Route("GetPlayerTodayProgress")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetPlayerTodayProgress(string ipAdress) {
 
             var response = await _worldService.GetTriesTodayPlyer(ipAdress);
@@ -52,14 +52,14 @@ namespace Termo.API.Controllers
                 });
             }
 
-            if(!(await _worldService.VerifyIdWorldExists(worldReceived))) {
-                ProccessNewWorld(worldReceived);
+            //if(!(await _worldService.VerifyIdWorldExists(worldReceived))) {
+            //    ProccessNewWorld(worldReceived);
 
-                return BadRequest(new {
-                    Key = "WORLD_DOES_NOT_EXISTS",
-                    Message = $"A palavra: {worldReceived} nao existe no nosso banco de dados"
-                });
-            }
+            //    return BadRequest(new {
+            //        Key = "WORLD_DOES_NOT_EXISTS",
+            //        Message = $"A palavra: {worldReceived} nao existe no nosso banco de dados"
+            //    });
+            //}
 
             if(!(await _worldService.CanPlayerPlay(ipAdress, playerName))){
                 return BadRequest(new {
